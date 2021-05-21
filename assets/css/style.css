@@ -3,6 +3,10 @@ body{
     background-color: white;
   }
 
+p{
+  text-align: justify;
+}
+
 h2{
     font-size: 150%;
     flex-wrap: 23px ;
