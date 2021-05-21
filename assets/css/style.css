@@ -14,13 +14,13 @@
   }
 
  #topic_container{
-	width:800px; height:40px; 
-	margin-left: auto ; margin-right: auto ; 
-	border-radius: 15px;
+	width:960px; height: auto; 
+	margin: auto ;
 	padding: 20px;
-/*	border: 1px solid #73AD21;
-	background-color:#dddddd; */
-  }
+	text-align: center;
+	border-radius: 15px;
+	border: 1px solid #73AD21;
+ }
 
   #proj_lst_cont {
     width: 175px; height: auto;
