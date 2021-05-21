@@ -5,6 +5,8 @@ body{
 
 p{
   text-align: justify;
+  font-family:courier;
+  font-size: 200%;
 }
 
 h2{
