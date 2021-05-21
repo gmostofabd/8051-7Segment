@@ -93,6 +93,16 @@ img {
         height: auto;
       }
 
+  .box_50 {
+        width: 50%;
+        height: auto;
+      }
+
+  .box_80 {
+        width: 80%;
+        height: auto;
+      }
+
 
   #box_this_lesson {
         width: 100%;
