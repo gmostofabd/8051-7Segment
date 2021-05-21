@@ -13,6 +13,7 @@ h2{
 h3{
     font-size: 20px;
     flex-wrap: 23px ;
+    text-align: left;
     color: rgb(105, 13, 70);
   }
 
@@ -158,4 +159,33 @@ padding-right: .6em;
   padding: 20px;
   width: 200px;
   height: 150px;
+}
+
+
+
+
+.zoom {
+  background-color: white;
+  width: auto; height: auto;
+  margin: 0;
+  transition: transform ease-in-out 0.3s; /* Animation */
+}
+
+.zoom:hover {
+  transform: scale(1.2); /* (150% zoom)*/
+}
+
+.zoomBOut {
+  width: 600px; 
+  height: 338px;
+  overflow: hidden;
+  position: relative;
+}
+.zoomBIn {
+  width: 100%;
+  height: 100%;
+  background-image: url("music.jpg");
+  background-position: center;
+  background-size: cover;
+  transition: transform ease 0.3s;
 }
