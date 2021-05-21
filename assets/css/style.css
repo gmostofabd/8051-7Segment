@@ -1,0 +1,148 @@
+
+ #header_common{
+	width:1000px; height:150px; 
+	margin-left: auto ; margin-right: auto ; 
+	background-color:#FFEEDD;
+  }
+
+ #footer_common{
+	width:960px; height:100px;
+	margin-left: auto ; margin-right: auto ; 
+	border-radius: 25px; border: 2px solid #73AD21;
+	padding: 20px;
+	background-color:#112233;
+  }
+
+ #topic_container{
+	width:800px; height:40px; 
+	margin-left: auto ; margin-right: auto ; 
+	border-radius: 15px;
+	padding: 20px;
+/*	border: 1px solid #73AD21;
+	background-color:#dddddd; */
+  }
+
+  #proj_lst_cont {
+    width: 175px; height: auto;
+    border-radius: 25px;
+    border: 2px solid #5f0b46;
+    margin-top: 10px;
+    padding: 10px;
+  }
+
+
+  #vdo_lst_cont {
+    width: 160px; height: auto;
+    border-radius: 25px;
+    border: 2px solid #73AD21;
+    padding: 5px;
+    margin-top: 10px;
+  }
+
+
+  .box_ckt_diag {
+    width: 100%; height: auto;
+    margin: auto;
+/*		border: 2px dashed #f7a239; */
+  }
+
+  .prog_cont{
+    width: 500px; height: 500px;
+    border-radius: 25px;
+    border: 1px solid #210f22;
+    padding: 10px;
+    margin: auto;
+  }
+
+  .capt_cont{
+    width: auto; height: auto;
+    padding: 10px;
+    text-align: center;
+    color: rgb(112, 108, 108);
+  }
+
+
+  .box {
+        width: 40%;
+        height: 170px;
+/*		border: 2px dashed #f7a239; */
+        
+      }
+
+
+  #box_this_lesson {
+        width: 100%;
+        height: 250px;
+		background-color:#3399ff;
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
+ 
+.inside {
+  list-style-position: inside;
+  list-style-type: square;
+}
+
+.outside {
+  list-style-position: outside;
+  list-style-type: circle;
+}
+
+.inside-img {
+  list-style-position: inside;
+  list-style-image: url("https://mdn.mozillademos.org/files/11979/starsolid.gif");
+}
+
+
+ul
+{
+list-style-type: none;
+padding: 0;
+margin: 0;
+text-align: left;
+}
+
+li
+{
+background-image: url(arrow.gif);
+background-repeat: no-repeat;
+background-position: 100% .4em;
+padding-right: .6em;
+}
+
+#rcorners1 {
+  border-radius: 25px;
+  background: #73AD21;
+  padding: 20px;
+  width: 200px;
+  height: 150px;
+}
+
+#rcorners2 {
+  border-radius: 25px;
+  border: 2px solid #73AD21;
+  padding: 20px;
+  width: 155px;
+  height: 850px;
+}
+
+#rcorners2a {
+  border-radius: 25px;
+  border: 2px solid #73AD21;
+  padding: 20px;
+  width: 550px;
+  height: 50px;
+}
+
+#rcorners3 {
+  border-radius: 25px;
+  background: url(paper.gif);
+  background-position: left top;
+  background-repeat: repeat;
+  padding: 20px;
+  width: 200px;
+  height: 150px;
+}
