@@ -5,84 +5,69 @@
 
 <head>
 	<link rel="stylesheet" href="assets/css/style.css">
+    <link rel="shortcut icon" href="https://github.com/gmostofabd/melab-store/blob/main/Images/melab-bd_logo.jpg?raw=true" type="image/x-icon">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script>
+      $(function(){
+        $('#sidebar1').load("assets/sidebar1.html");
+      });
+    </script>
+
     <meta charset="utf-8">
 	<meta name="Keywords" content="Microcontroller,8051,Assembly,Programming,Code,Proteus">
+
+    <!--Facebook Open graph Mete Tags-->
+    <meta property="og:url"                content="https://gmostofabd.github.io/8051-7Segment/" />
+    <meta property="og:type"               content="article" />
+    <meta property="og:title"              content="Exp-03 : 8051 and 7 Segment Display" />
+    <meta property="og:description"        content="7 Segment Display Interfacing with 8051 Microcontrollers" />
+    <meta property="og:image"              content="assets/images/SSD_1D_Counter.png" />
+
+
 	<title>8051 7 Segment Display</title>
 </head>
 
 
-<body  bgcolor=white>
+<body>
 
-	<div id="header_common">
-	<img src="assets/images/github_banner.png" alt="common_header" width="1083" height="150">
-	</div>
-	
+	<div id="header_common"><img src="https://github.com/gmostofabd/melab-store/blob/main/Images/8051_Tutorial_Banner.png?raw=true" alt="common_banner"></div>
+
 	<div id="topic_container">
-		<h2>Exp - 03: Seven Segment Display Interfacing with 8051 Microcontroller</h2>
+		<h2>Exp. 03 : Seven Segment Display Interfacing with 8051</h2>
 	</div>
 
 
     <table align = center width=1000 height=1000 border="1" bgcolor= white>
 	<tr>
-	<td width=200 bgcolor=white valign=top>
 
 
-		<div id=rcorners2>
-            <ol><h3>8051 Experiment List:</h3>
-                <li><a href>LED Blink</a></li>
-                <li>Push Button Interfacing</li>
-                <li>Seven Segment Display Interfacing</li>
-                <li>LED Dot Matrix Display Interfacing</li>
-                <li><a href="https://gmostofabd.github.io/lcd-8051/">LCD Interfacing</a></li>
-                <li>Potentiometer (or Analog) Reading</li>
-                <li>Key Pad Matrix Interfacing</li>
-                <li><a href="https://gmostofabd.github.io/dc-motor-8051/">DC Motor Interfacing</a></li>
-                <li><a href="https://gmostofabd.github.io/stepper-motor-8051/">Stepper Motor Interfacing</a></li>
-                <li>RTC Interfacing</li>
-                <li>EEPROM Interfacing</li>
-                <li>Bluetooth interfacing</li>
-                <li>7 Segment Clock</li>
-                <li>Serial Communication</li>
-              </ol>
-          </div>
-
-          <div id="proj_lst_cont">
-            <ol><h3>8051 Projects:</h3>
-              <li>Access Control System</li>
-              <li>6 Digit Clock</li>
-              <li>IR Remote Load ON OFF</li>
-              <li>Line Follower</li>
-              <li>Incubator Controller</li>
-            </ol>
-          </div>         
-
-    </td>
-
-
-
-	<td width=600 align=center valign=top style="padding-left: 10px; padding-right: 10px;">
+	<td width=800 align=center valign=top>
 		
 		<h3 align=left>Introduction:</h3>
-		<p>
-            A Seven Segment Display (SSD) is a form of electronic display 
-            device for displaying decimal numerals 0 to 9 and few characters 
-            like A, b, C, c, H, h, L etc. These arethe oldest yet one of 
-            the efficient types of display used in embedded applications. 
-	    Seven-segment displays are widely used in digital clocks, 
-            electronic meters, basic calculators, and other electronic 
-            devices that display numerical information.
-            
-            
-            <br><br>This article is about how to interface a seven segment 
-            LED display to any mi-crocontroller. Funny thing is that if you 
-            want to control a single digit 7 segmentdisplay, then it is 
-            nothing but controlling 7 LED’s as we learnt from the previous 
-            experiment. For multiple segments, there are simple studies for 
-            hardware and soft-ware as well. However a good Knowledge about 
-            how to interface a seven segment display to a microcontroller 
-            is very essential in designing embedded systems.
-            <br><br>
-	    </p>
+        <blockquote>
+            <p>
+                A Seven Segment Display (SSD) is a form of electronic display 
+                device for displayingdecimal numerals 0 to 9 and few characters 
+                like A, b, C, c, H, h, L etc. These arethe oldest yet one of 
+                the efficient types of display used in embedded applications.
+                Seven-segment displays are widely used in digital clocks, 
+                electronic meters, basiccalculators, and other electronic 
+                devices that display numerical information.
+                
+                
+                <br><br>This article is about how to interface a seven segment 
+                LED display to any mi-crocontroller. Funny thing is that if you 
+                want to control a single digit 7 segmentdisplay, then it is 
+                nothing but controlling 7 LED’s as we learnt from the previous 
+                experiment. For multiple segments, there are simple studies for 
+                hardware and soft-ware as well. However a good Knowledge about 
+                how to interface a seven segmentdisplay to a microcontroller 
+                is very essential in designing embedded systems.
+                <br><br>
+            </p>
+    
+        </blockquote>
 
 
 
@@ -112,31 +97,32 @@
         <h3 align=left>SSD Basics :</h3>
 
         <div class="box_80"><img src="assets/images/7seg_intro.png"/></div>
-        <div class="capt_cont">Fig: SSD Pinout</div>
+        <div class="capt_cont">Fig: SSD Pinout and internal circuit</div>
+
+        <blockquote>
+            <p>
+                A seven segment display consists of seven LEDs arranged in the form 
+                of a squarish‘8’ slightly inclined to the right and a single LED as 
+                the dot character. Differentcharacters can be displayed by 
+                selectively glowing the required LED segments.
+    
+                <br><br>The displays common pin is generally used to identify which 
+                type of 7-segmentdisplay it is. As each LED has two connecting pins, 
+                one called the “Anode” andthe other called the “Cathode”, there are 
+                therefore two types of 7-segment displaycalled: Common Cathode7(CC) 
+                and Common Anode8(CA).
+                <br><br>	
+            </p>
+    
+        </blockquote>
 
 
-
-
-        <p>
-            A seven segment display consists of seven LEDs arranged in the form 
-            of a squarish‘8’ slightly inclined to the right and a single LED as 
-            the dot character. Differentcharacters can be displayed by 
-            selectively glowing the required LED segments.
-
-            <br><br>The displays common pin is generally used to identify which 
-            type of 7-segmentdisplay it is. As each LED has two connecting pins, 
-            one called the “Anode” andthe other called the “Cathode”, there are 
-            therefore two types of 7-segment displaycalled: Common Cathode7(CC) 
-            and Common Anode8(CA).
-            <br><br>	
-        </p>
 
         <h3>How to Drive SSD's ?</h3>
-	
-        <div class="box_80"><img src="assets/images/ssd_drive2.png"/></div>
-        <div class="capt_cont">Fig: How to use a 7 Segment Display</div>
+        
+            <div class="box_90"><img src="assets/images/ssd_drive2.png"/></div>
 
-
+            <div class="capt_cont">Fig: How to use a 7 Segment Display</div>
 
 
 	    <blockquote>
@@ -153,14 +139,15 @@
 
         <h3>Circuit Diagram : Seven Segment Display to 8051.</h3>
 
-	
-	<div class="box_ckt_diag"><img src="assets/images/SSD_1D_Counter.png"/></div>
+        <div class="box_90"><img src="assets/images/SSD_1D_Counter.png"/></div>
         <div class="capt_cont">Fig: A Single Digit Seven Segment Display Circuit.</div>
+
+
 
 
         <blockquote>
         <p>
-        <strong>Circuit Discussion :</strong>
+        <strong>Circuit Discussion :</strong><br><br>
         The circuit diagram shown above is of an AT89S51 microcontroller based 0 
         to 9 counter which has a 7 segment LED display interfaced to it in order 
         to display the count.  This simple circuit illustrates two things. How 
@@ -184,38 +171,42 @@
         </ul>
 
 
-	
-		
         <h3>Assembly Program : <a href="https://github.com/gmostofabd/8051-7Segment/blob/main/codes/7seg_1d_8051.asm">7seg_1D_8051.asm</a></h3>
         <div class="prog_cont">
-            <embed type="text/html" src="codes/7seg_1d_8051.asm"  width="500" height="500">
+            <embed type="text/html" src="/codes/7seg_1d_8051.asm"  width="500" height="500">
         </div>
 
 
 
         <h3>Theory Part 2/2 : Multiplexing SSDs</h3>
-        <p>
-            Suppose you need a three digit display connected to the 8051. Each 7 
-            segment display have 8 pins and so a total amount of 24 pins are to 
-            the connected to the microcontroller and there will be only 8 pins 
-            left with the microcontroller for other input output applications. 
-            Also the maximum number of displays that can be connected to the 8051 
-            is limited to 4 because 8051 has only 4 ports. More over three 3 
-            displays will be ON always and this consumes a considerable amount of 
-            power. All these problems associated with the straight forward method 
-            can be solved by  multiplexing .
-        </p>
+        <blockquote>
+            <p>
+                Suppose you need a three digit display connected to the 8051. Each 7 
+                segment display have 8 pins and so a total amount of 24 pins are to 
+                the connected to the microcontroller and there will be only 8 pins 
+                left with the microcontroller for other input output applications. 
+                Also the maximum number of displays that can be connected to the 8051 
+                is limited to 4 because 8051 has only 4 ports. More over three 3 
+                displays will be ON always and this consumes a considerable amount of 
+                power. All these problems associated with the straight forward method 
+                can be solved by  multiplexing .
+            </p>
+    
+        </blockquote>
 
 
         <div class="box_50"><img src="assets/images/3Steps_1.png"/></div>
         <div class="capt_cont">Fig: Multiple digit Multiplexing tecnique.</div>
 
-        <p align=justify>In multiplexing all displays are connected in parallel to one port 
-            and only one display is allowed to turn ON at a time, for a short 
-            period. This cycle is repeated for at a fast rate and due to the 
-            persistence of vision of human eye, all digits seems to glow. The 
-            main advantages of this method are
-        </p>
+        <blockquote>
+            <p>In multiplexing all displays are connected in parallel to one port 
+                and only one display is allowed to turn ON at a time, for a short 
+                period. This cycle is repeated for at a fast rate and due to the 
+                persistence of vision of human eye, all digits seems to glow. The 
+                main advantages of this method are
+            </p>
+        </blockquote>
+
 
             <ul class="inside">
                 <li>Fewer number of port pins are required .</li>
@@ -226,32 +217,35 @@
 
         <h3>Circuit Diagram : Seven Segment Display to 8051.</h3>
 
-            <div class="box_ckt_diag"><img src="assets/images/SSD_2D_Counter.png"/></div>
+            <div class="box_90"><img src="assets/images/SSD_2D_Counter.png"/></div>
             <div class="capt_cont">Fig: two Digit Seven Segment Display Circuit.</div>
 
 
 
         <h3 align=left>Circuit Discussion :</h3>
-        <p>
-            When assembled and powered on, the circuit will display the number
-            ’16’ and let us see how it is done. Initially the first display is 
-            activated by making  P3.0 high and then digit drive pattern for “1” 
-            is loaded to  the Port 1. This will make the first display to show 
-            “1”. In the mean time P3.1 will be low and so do the second display 
-            will be OFF. This condition is maintained for around 1ms and then 
-            P3.0 is made low. Now both displays will be OFF. Then the second 
-            display is activated by making P3.1 high and then the digit drive 
-            pattern for “6” is loaded to the port 1. This will make the second 
-            display to show “6”. In the mean time P3.0 will be low and so the 
-            second display will be OFF.  This condition is maintained for 
-            another 1ms and then port 3.1 is made low. This cycle is repeated 
-            and due to the persistence of vision you will feel it as “16”.
-
-            <br><br>Transistor Q1 drives the first display (D1) and transistor 
-            Q2 drives the second display (D2). R11 and R12 are the base current 
-            limiting resistors of Q1 and Q2. The purpose of other components 
-            are explained in the first circuit.
-        </p>
+        <blockquote>
+            <p>
+                When assembled and powered on, the circuit will display the number
+                ’16’ and let us see how it is done. Initially the first display is 
+                activated by making  P3.0 high and then digit drive pattern for “1” 
+                is loaded to  the Port 1. This will make the first display to show 
+                “1”. In the mean time P3.1 will be low and so do the second display 
+                will be OFF. This condition is maintained for around 1ms and then 
+                P3.0 is made low. Now both displays will be OFF. Then the second 
+                display is activated by making P3.1 high and then the digit drive 
+                pattern for “6” is loaded to the port 1. This will make the second 
+                display to show “6”. In the mean time P3.0 will be low and so the 
+                second display will be OFF.  This condition is maintained for 
+                another 1ms and then port 3.1 is made low. This cycle is repeated 
+                and due to the persistence of vision you will feel it as “16”.
+    
+                <br><br>Transistor Q1 drives the first display (D1) and transistor 
+                Q2 drives the second display (D2). R11 and R12 are the base current 
+                limiting resistors of Q1 and Q2. The purpose of other components 
+                are explained in the first circuit.
+            </p>
+    
+        </blockquote>
 
         <h3>Assembly Program : 7seg_2D_8051.asm</h3>
         <div class="prog_cont">
@@ -263,35 +257,15 @@
 
 	<td valign=top>
 		
-		<iv id=box_this_lesson>
-			<h3 align=left>This lesson includes:</h3>
-			<ol>
-				<li>Introduction</li>
-				<li>Hardware Discussion</li>
-				<li>Circuit Diagram</li>
-				<li>Assembly Code</li>
-				<li>Post Run Discussion</li>
-				<li>Exercises</li>
-				<li>Tips and Tricks</li>
-			</ol>
-		</iv>
 
-
-        <div id="vdo_lst_cont">
-            <h3>Video demonstration of this lesson-</h3>
-            <iframe width="155" height="100"
-              src="https://www.youtube.com/embed/tgbNymZ7vqY">
-            </iframe>
+        <div class="vdo_lst_cont">
+            <h3>Lesson VDO-</h3>
+            <iframe width="186" height="120" src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
         </div>
 
-        <div id="vdo_lst_cont">
-            <h3>Important Downloads</h3>
-            <ul>
-              <li>Proteus 8.7</li>
-              <li>MIDE-51 IDE</li>
-              <li>AVRDUDES</li>
-            </ul>
-        </div>
+
+        <div id="sidebar1"></div>
+
 
     </td>
 
@@ -302,12 +276,24 @@
 
     <table width=1000 height=50 align= center border="1">
 		<tr>
-			<td>Prev topic: Push Button Interfacing with 8051</td>
+			<td width=500>Prev topic: Push Button Interfacing with 8051</td>
 			<td>Next topic: LED Matrix interfacing with 8051</td>
 		</tr>
     </table>
 
-	<div id="footer_common"></div>
+
+	<div id="footer_common">
+        <div class="prj_footer_cell">
+          <font face="Verdana, Arial, Helvetica, sans-serif" color="#452063" size="4" ><strong>Top Tutorial sites </strong></font>
+          <ul>
+            <li><a href="http://www.melab-bd.com/home.html"><strong>Circuit Today</strong></a></li>
+            <li><a href="http://www.melab-bd.com/about.html"><strong>Radio Electronics</strong></a></li>
+            <li><a href="http://www.melab-bd.com/project.html"><strong>8051 Projects</strong></a></li>
+            <li><a href="http://www.melab-bd.com/trainings.html"><strong>101 Components</strong></a></li>
+          </ul>
+    
+        </div>
+      </div>
 
 </body>
 
